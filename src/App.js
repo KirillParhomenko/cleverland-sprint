@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 
-import Wrapper from "./wrapper/Wrapper";
-import Header from "./components/layout/header/Header";
+import MainWrapper from "./components/layout/wrappers/MainWrapper";
+import Header from "./components/header/Header";
 
 function App() {
   return (
-    <Wrapper>
+    <MainWrapper>
       <Header />
-    </Wrapper>
+    </MainWrapper>
   );
 }
 
