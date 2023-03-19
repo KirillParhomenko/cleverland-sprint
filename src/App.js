@@ -11,7 +11,9 @@ function App() {
   return (
     <Wrapper className={wrapperStyle["wrapper-content"]}>
       <Header />
-      <Banner />
+      <main>
+        <Banner />
+      </main>
     </Wrapper>
   );
 }
