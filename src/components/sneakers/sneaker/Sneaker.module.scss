@@ -1,0 +1,76 @@
+.sneaker {
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 21rem;
+    height: 26rem;
+    padding: 1.5rem 2.5rem 3rem 2.5rem;
+    border: 1px solid #f3f3f3;
+    border-radius: 4rem;
+    box-sizing: border-box;
+  }
+
+  &_title {
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      margin: 0;
+    }
+    padding-bottom: 1rem;
+  }
+
+  &_img-wrapper {
+    height: 55%;
+    padding-bottom: 1rem;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &_order {
+    &-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        border: 1px solid #f2f2f2;
+        border-radius: 0.8rem;
+        background-color: inherit;
+        height: 3rem;
+        width: 3rem;
+        display: flex;
+        align-items: center;
+        
+        svg{
+            margin: 0 auto;
+        }
+      }
+    }
+
+    &-price {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 1.3rem;
+        color: #bdbdbd;
+        &:last-child {
+          font-weight: 700;
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+          color: black;
+        }
+        margin: 0;
+      }
+    }
+  }
+}

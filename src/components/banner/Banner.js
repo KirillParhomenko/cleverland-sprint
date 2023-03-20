@@ -1,25 +1,28 @@
 import Wrapper from "./../layout/wrappers/Wrapper";
+import BannerArrow from "../../assets/banner_arrow";
 
 import classes from "./Banner.module.scss";
-import back from "./../../assets/kermit_banner.png";
 
-const banners = [{ sourceUrl: "/../src/assets/kermit_banner.png", link: "" }];
+import bannerData from "../../assets/bannerData";
 
 const Banner = () => {
   return (
     <section>
       <Wrapper className={classes["banner-wrapper"]}>
-        <span></span>
+        <span>
+          <BannerArrow />
+        </span>
         <div
+          className={classes["banner-images"]}
           style={{
-            backgroundImage: `url(${banners[0].sourceUrl})`,
+            backgroundImage: `url(${bannerData[0].sourceUrl})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            width: "inherit",
-            height: "inherit",
           }}
-        ></div>
-        <span></span>
+        />
+        <span>
+          <BannerArrow />
+        </span>
       </Wrapper>
     </section>
   );

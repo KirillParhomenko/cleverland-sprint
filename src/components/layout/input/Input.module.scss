@@ -1,0 +1,21 @@
+.input-wrapper {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #f3f3f3;
+  border-radius: 1rem;
+  width: 25rem;
+  height: 4.5rem;
+  padding-left: 1.8rem;
+
+  input {
+    padding-left: 1rem  ;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #c4c4c4;
+    }
+  }
+}
