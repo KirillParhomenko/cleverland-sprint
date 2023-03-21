@@ -1,0 +1,7 @@
+.sneakers_wrapper {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 29rem);
+  gap: 2rem;
+  align-items: center;
+}

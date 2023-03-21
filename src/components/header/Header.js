@@ -31,7 +31,7 @@ const Header = () => {
           </li>
           <li>
             <a className={classes["header-favourite"]} href="#">
-              <FavoutireLogo />
+              <FavoutireLogo color={"#9B9B9B"} />
             </a>
           </li>
           <li>

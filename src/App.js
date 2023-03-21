@@ -5,10 +5,10 @@ import Header from "./components/header/Header";
 import wrapperStyle from "./styles/Wrapper.module.scss";
 import Banner from "./components/banner/Banner";
 import Title from "./components/layout/title/Title";
+import Input from "./components/layout/input/Input";
+import Sneakers from "./components/sneakers/Sneakers";
 
 import classes from "./App.module.scss";
-import Input from "./components/layout/input/Input";
-import Sneaker from "./components/sneakers/sneaker/Sneaker";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             <Input />
           </section>
           <section>
-            <Sneaker />
+            <Sneakers />
           </section>
         </div>
       </main>

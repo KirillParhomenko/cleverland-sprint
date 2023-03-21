@@ -4,18 +4,27 @@
 
   border: 1px solid #f3f3f3;
   border-radius: 1rem;
-  width: 25rem;
-  height: 4.5rem;
+  width: 35rem;
+  height: 5.5rem;
   padding-left: 1.8rem;
+
+  svg{
+    height: 2rem;
+    width: 2rem;
+  }
 
   input {
     padding-left: 1rem  ;
     border: none;
+    height: 80%;
+    width: 90%;
+    font-size: 2rem;
     &:focus {
       outline: none;
     }
     &::placeholder {
       color: #c4c4c4;
+      font-size: 2rem;
     }
   }
 }
