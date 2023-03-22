@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 
+import CartProvider from "./store/CartProvider";
+
 import Wrapper from "./components/layout/wrappers/Wrapper";
 import Header from "./components/header/Header";
 import wrapperStyle from "./styles/Wrapper.module.scss";
@@ -12,21 +14,23 @@ import classes from "./App.module.scss";
 
 function App() {
   return (
-    <Wrapper className={wrapperStyle["wrapper-content"]}>
-      <Header />
-      <main>
-        <div className={wrapperStyle["wrapper-main"]}>
-          <Banner />
-          <section className={classes["section_title-search"]}>
-            <Title>Все кроссовки</Title>
-            <Input />
-          </section>
-          <section>
-            <Sneakers />
-          </section>
-        </div>
-      </main>
-    </Wrapper>
+    <CartProvider>
+      <Wrapper className={wrapperStyle["wrapper-content"]}>
+        <Header />
+        <main>
+          <div className={wrapperStyle["wrapper-main"]}>
+            <Banner />
+            <section className={classes["section_title-search"]}>
+              <Title>Все кроссовки</Title>
+              <Input />
+            </section>
+            <section>
+              <Sneakers />
+            </section>
+          </div>
+        </main>
+      </Wrapper>
+    </CartProvider>
   );
 }
 

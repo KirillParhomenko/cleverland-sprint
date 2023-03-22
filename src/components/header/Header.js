@@ -1,3 +1,7 @@
+import { useContext } from "react";
+
+import cartContext from "../../store/cartContext";
+
 import classes from "./Header.module.scss";
 
 import Logo from "./../../assets/logo.png";
@@ -6,6 +10,8 @@ import FavoutireLogo from "../../assets/favourite_logo";
 import ProfileLogo from "../../assets/profile_logo";
 
 const Header = () => {
+  const totalPrice = useContext(cartContext).totalCost;
+
   return (
     <header>
       <div className={classes["header-wrapper_logo"]}>
@@ -25,7 +31,7 @@ const Header = () => {
             <a className={classes["header-cart"]} href="#">
               <CartLogo />
               <span className={classes["header-cart_total-price"]}>
-                1205 руб.
+                {totalPrice + " руб."}
               </span>
             </a>
           </li>

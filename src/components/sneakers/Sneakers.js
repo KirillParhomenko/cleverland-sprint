@@ -10,6 +10,7 @@ const Sneakers = (props) => {
         return (
           <Sneaker
             key={index}
+            id={item.id}
             imageUrl={item.imageUrl}
             categorySex={item.categorySex}
             name={item.name}
