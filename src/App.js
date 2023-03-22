@@ -9,6 +9,7 @@ import Banner from "./components/banner/Banner";
 import Title from "./components/layout/title/Title";
 import Input from "./components/layout/input/Input";
 import Sneakers from "./components/sneakers/Sneakers";
+import Cart from "./components/cart/Cart";
 
 import classes from "./App.module.scss";
 
@@ -30,6 +31,7 @@ function App() {
           </div>
         </main>
       </Wrapper>
+      <Cart />
     </CartProvider>
   );
 }

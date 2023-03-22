@@ -4,6 +4,8 @@ import cartContext from "../../../store/cartContext";
 
 import classes from "./Sneaker.module.scss";
 
+import countPrice from "../../../assets/countPrice";
+
 import SneakerBuy from "../../../assets/sneakerBuy";
 import FavoutireLogo from "../../../assets/favourite_logo";
 
@@ -14,12 +16,7 @@ const Sneaker = (props) => {
     cartCtx.addItem({ id: props.id, name: props.name, price: props.price });
   };
 
-  let strPrice = props.price + "";
-  const finallPrice = `${
-    strPrice.length > 3
-      ? strPrice.slice(0, -3) + " " + strPrice.slice(-3)
-      : strPrice
-  } руб.`;
+  const finallPrice = countPrice(props.price.toString());
 
   return (
     <div className={classes["sneaker_wrapper"]}>
