@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import classes from "./Cart.module.scss";
-import CartOrder from "./CartOrder";
+import CartOrder from "./cartOrder/CartOrder";
 
 const Cart = (props) => {
   return (

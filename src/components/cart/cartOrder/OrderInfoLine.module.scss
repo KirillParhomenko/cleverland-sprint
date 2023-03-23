@@ -1,0 +1,10 @@
+.order-info-line {
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    white-space: nowrap;пшеп
+    line-height: 75%;
+    font-size: 3rem;
+  }
+}
