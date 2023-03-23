@@ -5,19 +5,21 @@ const PopUp = (props) => {
   return <Fragment>{props.children}</Fragment>;
 };
 
-const BackDrop = () => {
+const BackDrop = (props) => {
   return (
     <div
       style={{
         backgroundColor: "#000000",
         opacity: "0.5",
-        width: "100vw",
-        height: "100vh",
-        position: "absolute",
+        width: "100%",
+        height: "100%",
+        position: "fixed",
         top: "0",
         left: "0",
-        zIndex: "-100",
+        zIndex: "1",
+        cursor: "pointer",
       }}
+      onClick={props.onHide}
     ></div>
   );
 };
@@ -25,14 +27,16 @@ const BackDrop = () => {
 const PopUpPortal = (props) => {
   return (
     <Fragment>
-      {ReactDOM.createPortal(
-        <BackDrop></BackDrop>,
-        document.getElementById("pop-up")
-      )}
-      {ReactDOM.createPortal(
-        <PopUp>{props.children}</PopUp>,
-        document.getElementById("pop-up")
-      )}
+      {props.isActive &&
+        ReactDOM.createPortal(
+          <BackDrop onHide={props.hideHandler}></BackDrop>,
+          document.getElementById("pop-up")
+        )}
+      {props.isActive &&
+        ReactDOM.createPortal(
+          <PopUp>{props.children}</PopUp>,
+          document.getElementById("pop-up")
+        )}
     </Fragment>
   );
 };

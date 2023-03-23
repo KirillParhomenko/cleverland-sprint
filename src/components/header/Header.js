@@ -11,7 +11,7 @@ import CartLogo from "../../assets/cart_logo";
 import FavoutireLogo from "../../assets/favourite_logo";
 import ProfileLogo from "../../assets/profile_logo";
 
-const Header = () => {
+const Header = (props) => {
   let totalPrice = useContext(cartContext).totalCost;
 
   totalPrice = countPrice(totalPrice.toString());
@@ -32,12 +32,15 @@ const Header = () => {
       <nav>
         <ul className={classes["header-wrapper_nav"]}>
           <li>
-            <a className={classes["header-cart"]} href="#">
+            <button
+              className={classes["header-cart"]}
+              onClick={props.onShowCart}
+            >
               <CartLogo />
               <span className={classes["header-cart_total-price"]}>
                 {totalPrice}
               </span>
-            </a>
+            </button>
           </li>
           <li>
             <a className={classes["header-favourite"]} href="#">

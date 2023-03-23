@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import CartProvider from "./store/CartProvider";
 
@@ -12,12 +12,26 @@ import Sneakers from "./components/sneakers/Sneakers";
 import Cart from "./components/cart/Cart";
 
 import classes from "./App.module.scss";
+import PopUpPortal from "./components/layout/portal/PopUpPortal";
 
 function App() {
+  const [isCartActive, setIsCartActive] = useState(false);
+
+  const showCartHandler = () => {
+    setIsCartActive(true);
+  };
+
+  const hideCartHandler = () => {
+    setIsCartActive(false);
+  };
+
   return (
     <CartProvider>
+      <PopUpPortal isActive={isCartActive} hideHandler={hideCartHandler}>
+        <Cart />
+      </PopUpPortal>
       <Wrapper className={wrapperStyle["wrapper-content"]}>
-        <Header />
+        <Header onShowCart={showCartHandler} />
         <main>
           <div className={wrapperStyle["wrapper-main"]}>
             <Banner />
@@ -31,7 +45,6 @@ function App() {
           </div>
         </main>
       </Wrapper>
-      <Cart />
     </CartProvider>
   );
 }

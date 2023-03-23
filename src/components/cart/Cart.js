@@ -1,11 +1,15 @@
-import PopUpPortal from "../layout/portal/PopUpPortal";
+import { Fragment } from "react";
 import classes from "./Cart.module.scss";
+import CartOrder from "./CartOrder";
 
 const Cart = (props) => {
   return (
-    <PopUpPortal>
-      <div className={classes["cart-wrapper"]}></div>;
-    </PopUpPortal>
+    <Fragment>
+      <div className={classes["cart-wrapper"]}>
+        <h1>Корзина</h1>
+        <CartOrder/>
+      </div>
+    </Fragment>
   );
 };
 

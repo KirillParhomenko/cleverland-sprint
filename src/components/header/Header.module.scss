@@ -4,7 +4,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .header {
@@ -26,7 +26,8 @@ header {
         list-style: none;
         margin-left: 5rem;
         display: flex;
-        a {
+        a,
+        button {
           text-decoration: none;
           color: #5c5c5c;
           font-weight: 600;
@@ -72,6 +73,10 @@ header {
   &-cart {
     display: flex;
     align-items: center;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+
     &_total-price {
       margin-left: 1rem;
     }
