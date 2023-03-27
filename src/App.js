@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import CartProvider from "./store/CartProvider";
 
@@ -16,6 +16,10 @@ import PopUpPortal from "./components/layout/portal/PopUpPortal";
 
 function App() {
   const [isCartActive, setIsCartActive] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isCartActive ? "hidden" : "";
+  }, [isCartActive]);
 
   const showCartHandler = () => {
     setIsCartActive(true);

@@ -9,12 +9,15 @@ const ApplyRejectButton = (props) => {
     fontSize: props.fontSize,
   };
 
+  const clickHandler = () => {};
+
   return (
     <button
       style={buttonStyle}
       className={classes[props.isApply ? "button_apply" : "button_reject"]}
+      onClick={props.onClick}
     >
-      <ButtonArrow />
+      <ButtonArrow width={props.fontSize} height={props.fontSize} />
       {props.text}
     </button>
   );

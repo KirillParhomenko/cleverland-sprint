@@ -7,13 +7,21 @@ import classes from "./Sneaker.module.scss";
 import countPrice from "../../../assets/countPrice";
 
 import SneakerBuy from "../../../assets/sneakerBuy";
+import SneakerReady from "../../../assets/sneakerReady";
 import FavoutireLogo from "../../../assets/favourite_logo";
 
 const Sneaker = (props) => {
   const cartCtx = useContext(cartContext);
 
   const addSneakerHandler = () => {
-    cartCtx.addItem({ id: props.id, name: props.name, price: props.price });
+    cartCtx.addItem({
+      id: props.id,
+      idInCart: cartCtx.items.length + 1,
+      categorySex: props.categorySex,
+      imageUrl: props.imageUrl,
+      name: props.name,
+      price: props.price,
+    });
   };
 
   const finallPrice = countPrice(props.price.toString());
@@ -36,8 +44,11 @@ const Sneaker = (props) => {
           <p>ЦЕНА:</p>
           <p>{finallPrice}</p>
         </div>
-        <button onClick={addSneakerHandler}>
-          <SneakerBuy />
+        <button
+          onClick={addSneakerHandler}
+          className={props.isInCart && classes["sneaker_order-in-cart"]}
+        >
+          {props.isInCart ? <SneakerReady /> : <SneakerBuy />}
         </button>
       </div>
     </div>

@@ -3,8 +3,29 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    white-space: nowrap;пшеп
+    white-space: nowrap;
     line-height: 75%;
-    font-size: 3rem;
+    font-size: 2rem;
+    box-sizing: border-box;
+    margin: 3rem 0;
+    
+
+    span {
+      font-style: normal;
+      font-weight: 400;
+      color: black;
+
+      &:last-child{
+        font-weight: 600;
+      }
+    }
+  }
+
+  &_dashed-line {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0.5vw;
+    border-bottom: 0.1rem dashed #dfdfdf;
   }
 }

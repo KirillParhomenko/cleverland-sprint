@@ -15,8 +15,6 @@
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
-      width: 2rem;
-      height: 2rem;
     }
   }
 
@@ -29,6 +27,7 @@
   &_reject {
     svg {
       left: 10%;
+      transform: translate(0, -50%) scale(-1);
     }
   }
 }
