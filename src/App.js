@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import CartProvider from "./store/CartProvider";
 
@@ -32,7 +32,7 @@ function App() {
   return (
     <CartProvider>
       <PopUpPortal isActive={isCartActive} hideHandler={hideCartHandler}>
-        <Cart />
+        <Cart hideCartHandler={hideCartHandler}/>
       </PopUpPortal>
       <Wrapper className={wrapperStyle["wrapper-content"]}>
         <Header onShowCart={showCartHandler} />
