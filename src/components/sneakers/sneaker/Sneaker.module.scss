@@ -30,6 +30,11 @@
     align-items: center;
     cursor: pointer;
 
+    &_active {
+      background-color: #fef0f0;
+      border: none;
+
+    }
     svg {
       width: 2rem;
       height: 2rem;

@@ -21,7 +21,7 @@ const SneakerReady = () => {
           width="10.6698"
           height="10.5132"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
           <feColorMatrix

@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useState, useContext, useEffect } from "react";
 
 import cartContext from "../../store/cartContext";
 import CartOrder from "./cartOrder/CartOrder";
@@ -6,17 +6,16 @@ import CartExitInfo from "../layout/cart/CartExitInfo";
 
 import classes from "./Cart.module.scss";
 import emptyBox from "./../../assets/EmptyBox.png";
+import orderedImg from "./../../assets/ordered.jpg";
 
 const Cart = (props) => {
-  const isCartEmpty = useContext(cartContext).items.length !== 0;
+  const cartCtx = useContext(cartContext);
 
   return (
     <Fragment>
       <div className={classes["cart-wrapper"]}>
         <h1>Корзина</h1>
-        {isCartEmpty ? (
-          <CartOrder hideCartHandler={props.hideCartHandler} />
-        ) : (
+        {cartCtx.cartState === "EMPTY_ORDER" && (
           <CartExitInfo
             imgUrl={emptyBox}
             title={"Корзина пустая"}
@@ -26,6 +25,17 @@ const Cart = (props) => {
             onHideCart={props.hideCartHandler}
           />
         )}
+        {cartCtx.cartState === "APPLIED_ORDER" && (
+          <CartExitInfo
+            imgUrl={orderedImg}
+            title={"Заказ оформлен!"}
+            text={"Ваш заказ #18 скоро будет передан курьерской доставке"}
+            buttonText={"Вернуться назад"}
+            isApply={false}
+            onHideCart={props.hideCartHandler}
+          />
+        )}
+        {cartCtx.cartState === "AVAILABLE_ORDER" && <CartOrder />}
       </div>
     </Fragment>
   );

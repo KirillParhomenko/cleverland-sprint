@@ -13,7 +13,10 @@ const Sneakers = (props) => {
   return (
     <div className={classes["sneakers_wrapper"]}>
       {sneakerData.map((item, index) => {
-        let isInCart = sneakersInCart.some(
+        const isInCart = sneakersInCart.some(
+          (sneakerItem) => sneakerItem.id === item.id
+        );
+        const isFavourite = props.favouriteSneakers.some(
           (sneakerItem) => sneakerItem.id === item.id
         );
         return (
@@ -25,6 +28,10 @@ const Sneakers = (props) => {
             name={item.name}
             price={item.price}
             isInCart={isInCart}
+            isFavourite={isFavourite}
+            favouriteSneakers={props.favouriteSneakers}
+            addFavouriteSneaker={props.addFavouriteSneakerHandler}
+            removeFavouriteSneaker={props.removeFavouriteSneakerHandler}
           />
         );
       })}

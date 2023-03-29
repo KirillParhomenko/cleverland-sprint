@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import cartContext from "../../../store/cartContext";
 
@@ -9,6 +9,7 @@ import countPrice from "../../../assets/countPrice";
 import SneakerBuy from "../../../assets/sneakerBuy";
 import SneakerReady from "../../../assets/sneakerReady";
 import FavoutireLogo from "../../../assets/favourite_logo";
+import FavouriteLogoActive from "../../../assets/favourite_logo_active";
 
 const Sneaker = (props) => {
   const cartCtx = useContext(cartContext);
@@ -24,12 +25,31 @@ const Sneaker = (props) => {
     });
   };
 
+  const favouriteSneakerHandler = () => {
+    if (
+      props.favouriteSneakers.some((favSneaker) => favSneaker.id === props.id)
+    ) {
+      props.removeFavouriteSneaker(props.id);
+    } else {
+      props.addFavouriteSneaker(props.id);
+    }
+  };
+
   const finallPrice = countPrice(props.price.toString());
 
   return (
     <div className={classes["sneaker_wrapper"]}>
-      <button className={classes["sneaker_favourite"]}>
-        <FavoutireLogo color={"#ECECEC"} />
+      <button
+        className={`${classes["sneaker_favourite"]} ${
+          props.isFavourite && classes["sneaker_favourite_active"]
+        }`}
+        onClick={favouriteSneakerHandler}
+      >
+        {props.isFavourite ? (
+          <FavouriteLogoActive />
+        ) : (
+          <FavoutireLogo color={"#ECECEC"} />
+        )}
       </button>
       <div className={classes["sneaker_img-wrapper"]}>
         <img src={props.imageUrl} />

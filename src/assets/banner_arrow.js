@@ -10,9 +10,9 @@ const BannerArrow = () => {
       <path
         d="M1 0.999999L6 6L1 11"
         stroke="#C8C8C8"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
