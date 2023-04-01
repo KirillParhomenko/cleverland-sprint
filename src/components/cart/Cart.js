@@ -2,7 +2,7 @@ import { Fragment, useState, useContext, useEffect } from "react";
 
 import cartContext from "../../store/cartContext";
 import CartOrder from "./cartOrder/CartOrder";
-import CartExitInfo from "../layout/cart/CartExitInfo";
+import ActionNotification from "./../ActionNotification";
 
 import classes from "./Cart.module.scss";
 import emptyBox from "./../../assets/EmptyBox.png";
@@ -16,23 +16,33 @@ const Cart = (props) => {
       <div className={classes["cart-wrapper"]}>
         <h1>Корзина</h1>
         {cartCtx.cartState === "EMPTY_ORDER" && (
-          <CartExitInfo
+          <ActionNotification
             imgUrl={emptyBox}
             title={"Корзина пустая"}
             text={"Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
             buttonText={"Вернуться назад"}
             isApply={false}
             onHideCart={props.hideCartHandler}
+            wrapperStyles={{
+              top: "40%",
+              transform: "translate(0,-40%)",
+              width: "70%",
+            }}
           />
         )}
         {cartCtx.cartState === "APPLIED_ORDER" && (
-          <CartExitInfo
+          <ActionNotification
             imgUrl={orderedImg}
             title={"Заказ оформлен!"}
             text={"Ваш заказ #18 скоро будет передан курьерской доставке"}
             buttonText={"Вернуться назад"}
             isApply={false}
             onHideCart={props.hideCartHandler}
+            wrapperStyles={{
+              top: "40%",
+              transform: "translate(0,-40%)",
+              width: "70%",
+            }}
           />
         )}
         {cartCtx.cartState === "AVAILABLE_ORDER" && <CartOrder />}

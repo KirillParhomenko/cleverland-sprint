@@ -3,20 +3,22 @@ import { useContext } from "react";
 import cartContext from "../../store/cartContext";
 
 import Sneaker from "./sneaker/Sneaker";
-import sneakerData from "../../assets/sneakerData";
 
 import classes from "./Sneakers.module.scss";
 
+import favouriteContext from "../../store/favouriteContext";
+
 const Sneakers = (props) => {
   const sneakersInCart = useContext(cartContext).items;
+  const favouriteCtx = useContext(favouriteContext);
 
   return (
     <div className={classes["sneakers_wrapper"]}>
-      {sneakerData.map((item, index) => {
+      {props.data.map((item, index) => {
         const isInCart = sneakersInCart.some(
           (sneakerItem) => sneakerItem.id === item.id
         );
-        const isFavourite = props.favouriteSneakers.some(
+        const isFavourite = favouriteCtx.items.some(
           (sneakerItem) => sneakerItem.id === item.id
         );
         return (
@@ -29,9 +31,9 @@ const Sneakers = (props) => {
             price={item.price}
             isInCart={isInCart}
             isFavourite={isFavourite}
-            favouriteSneakers={props.favouriteSneakers}
-            addFavouriteSneaker={props.addFavouriteSneakerHandler}
-            removeFavouriteSneaker={props.removeFavouriteSneakerHandler}
+            favouriteSneakers={favouriteCtx.items}
+            addFavouriteSneaker={favouriteCtx.addFavourite}
+            removeFavouriteSneaker={favouriteCtx.removeFavourite}
           />
         );
       })}

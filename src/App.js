@@ -1,4 +1,10 @@
 import { useState, useEffect, useReducer } from "react";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
 
 import CartProvider from "./store/CartProvider";
 
@@ -15,63 +21,21 @@ import classes from "./App.module.scss";
 import PopUpPortal from "./components/layout/portal/PopUpPortal";
 
 import sneakerData from "./assets/sneakerData";
+import Layout from "./components/layout/Layout";
+import Main from "./pages/Main";
+import Favourite from "./pages/Favourite";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Main />} />
+      <Route path="favourites" element={<Favourite />} />
+    </Route>
+  )
+);
 
 function App() {
-  const [isCartActive, setIsCartActive] = useState(false);
-  const [favouriteSneakers, setFavouriteSneakers] = useState([]);
-
-  useEffect(() => {
-    document.body.style.overflow = isCartActive ? "hidden" : "";
-  }, [isCartActive]);
-
-  console.log(favouriteSneakers)
-
-  const showCartHandler = () => {
-    setIsCartActive(true);
-  };
-
-  const hideCartHandler = () => {
-    setIsCartActive(false);
-  };
-
-  const addFavouriteSneakerHandler = (id) => {
-    setFavouriteSneakers((prevState) => [
-      ...prevState,
-      sneakerData.find((sneaker) => sneaker.id === id),
-    ]);
-  };
-
-  const removeFavouriteSneakerHandler = (id) => {
-    setFavouriteSneakers((prevState) =>
-      prevState.filter((sneaker) => sneaker.id !== id)
-    );
-  };
-  return (
-    <CartProvider>
-      <PopUpPortal isActive={isCartActive} hideHandler={hideCartHandler}>
-        <Cart hideCartHandler={hideCartHandler} />
-      </PopUpPortal>
-      <Wrapper className={wrapperStyle["wrapper-content"]}>
-        <Header onShowCart={showCartHandler} />
-        <main>
-          <div className={wrapperStyle["wrapper-main"]}>
-            <Banner />
-            <section className={classes["section_title-search"]}>
-              <Title>Все кроссовки</Title>
-              <Input />
-            </section>
-            <section>
-              <Sneakers
-                favouriteSneakers={favouriteSneakers}
-                addFavouriteSneakerHandler={addFavouriteSneakerHandler}
-                removeFavouriteSneakerHandler={removeFavouriteSneakerHandler}
-              />
-            </section>
-          </div>
-        </main>
-      </Wrapper>
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

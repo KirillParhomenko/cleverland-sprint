@@ -5,6 +5,10 @@ header {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #eaeaea;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .header {
@@ -28,7 +32,6 @@ header {
         display: flex;
         a,
         button {
-          text-decoration: none;
           color: #5c5c5c;
           font-weight: 600;
           font-size: 1.7rem;

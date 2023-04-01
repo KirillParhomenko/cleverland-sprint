@@ -10,6 +10,7 @@ import Logo from "./../../assets/logo.png";
 import CartLogo from "../../assets/cart_logo";
 import FavoutireLogo from "../../assets/favourite_logo";
 import ProfileLogo from "../../assets/profile_logo";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   let totalPrice = useContext(cartContext).totalCost;
@@ -18,7 +19,7 @@ const Header = (props) => {
 
   return (
     <header>
-      <div className={classes["header-wrapper_logo"]}>
+      <Link to="/" className={classes["header-wrapper_logo"]}>
         <img
           src={Logo}
           alt="Logo of sneaker react!"
@@ -28,7 +29,7 @@ const Header = (props) => {
           <h1>REACT SNEAKERS</h1>
           <p>Магазин лучших кроссовок</p>
         </div>
-      </div>
+      </Link>
       <nav>
         <ul className={classes["header-wrapper_nav"]}>
           <li>
@@ -43,9 +44,9 @@ const Header = (props) => {
             </button>
           </li>
           <li>
-            <a className={classes["header-favourite"]} href="#">
+            <Link to={"/favourites"} className={classes["header-favourite"]}>
               <FavoutireLogo color={"#9B9B9B"} />
-            </a>
+            </Link>
           </li>
           <li>
             <a className={classes["header-profile"]} href="#">
