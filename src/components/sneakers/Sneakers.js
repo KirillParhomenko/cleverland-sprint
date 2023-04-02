@@ -34,6 +34,7 @@ const Sneakers = (props) => {
             favouriteSneakers={favouriteCtx.items}
             addFavouriteSneaker={favouriteCtx.addFavourite}
             removeFavouriteSneaker={favouriteCtx.removeFavourite}
+            isButtonBuyAvailable={props.isButtonBuyAvailable}
           />
         );
       })}

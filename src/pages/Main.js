@@ -1,9 +1,7 @@
-import { useState, useEffect, useReducer, useContext } from "react";
-
 import wrapperStyle from "./../styles/Wrapper.module.scss";
 import Banner from "../components/banner/Banner";
 import Title from "../components/layout/title/Title";
-import Input from "../components/layout/input/Input";
+import SearchBar from "../components/searchBar/SearchBar";
 import Sneakers from "../components/sneakers/Sneakers";
 
 import sneakerData from "../assets/sneakerData";
@@ -16,10 +14,10 @@ const Main = () => {
       <Banner />
       <section className={classes["section_title-search"]}>
         <Title>Все кроссовки</Title>
-        <Input />
+        <SearchBar data={sneakerData} />
       </section>
       <section>
-        <Sneakers data={sneakerData} />
+        <Sneakers data={sneakerData} isButtonBuyAvailable={true} />
       </section>
     </div>
   );

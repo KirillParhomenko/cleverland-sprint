@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import cartContext from "../../../store/cartContext";
 
@@ -64,12 +64,14 @@ const Sneaker = (props) => {
           <p>ЦЕНА:</p>
           <p>{finallPrice}</p>
         </div>
-        <button
-          onClick={addSneakerHandler}
-          className={props.isInCart && classes["sneaker_order-in-cart"]}
-        >
-          {props.isInCart ? <SneakerReady /> : <SneakerBuy />}
-        </button>
+        {props.isButtonBuyAvailable && (
+          <button
+            onClick={addSneakerHandler}
+            className={props.isInCart && classes["sneaker_order-in-cart"]}
+          >
+            {props.isInCart ? <SneakerReady /> : <SneakerBuy />}
+          </button>
+        )}
       </div>
     </div>
   );

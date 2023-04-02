@@ -10,6 +10,7 @@ import wrapperStyle from "./../../styles/Wrapper.module.scss";
 import Cart from "../cart/Cart";
 
 import PopUpPortal from "./portal/PopUpPortal";
+import PurchasesProvider from "../../store/PurchasesProvider";
 
 const Layout = () => {
   const [isCartActive, setIsCartActive] = useState(false);
@@ -28,15 +29,17 @@ const Layout = () => {
   return (
     <CartProvider>
       <FavouriteProvider>
-        <PopUpPortal isActive={isCartActive} hideHandler={hideCartHandler}>
-          <Cart hideCartHandler={hideCartHandler} />
-        </PopUpPortal>
-        <Wrapper className={wrapperStyle["wrapper-content"]}>
-          <Header onShowCart={showCartHandler} />
-          <main>
-            <Outlet />
-          </main>
-        </Wrapper>
+        <PurchasesProvider>
+          <PopUpPortal isActive={isCartActive} hideHandler={hideCartHandler}>
+            <Cart hideCartHandler={hideCartHandler} />
+          </PopUpPortal>
+          <Wrapper className={wrapperStyle["wrapper-content"]}>
+            <Header onShowCart={showCartHandler} />
+            <main>
+              <Outlet />
+            </main>
+          </Wrapper>
+        </PurchasesProvider>
       </FavouriteProvider>
     </CartProvider>
   );

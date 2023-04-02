@@ -49,9 +49,9 @@ const Header = (props) => {
             </Link>
           </li>
           <li>
-            <a className={classes["header-profile"]} href="#">
+            <Link to={"/purchase"} className={classes["header-profile"]}>
               <ProfileLogo />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

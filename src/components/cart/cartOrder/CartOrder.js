@@ -1,9 +1,10 @@
-import { Fragment, useContext, useState } from "react";
+import { useContext } from "react";
 
 import OrderInfoLine from "./OrderInfoLine";
 import Orders from "./Orders";
 
 import cartContext from "../../../store/cartContext";
+import purchasesContext from "../../../store/purchasesContext";
 import ApplyRejectButton from "../../layout/button/ApplyRejectButton";
 import countPrice from "../../../assets/countPrice";
 
@@ -11,12 +12,14 @@ import classes from "./CartOrder.module.scss";
 
 const CartOrder = (props) => {
   const cartCtx = useContext(cartContext);
+  const purchasesCtx = useContext(purchasesContext);
   const totalCost = cartCtx.totalCost;
   let totalCostStr = countPrice(totalCost.toString());
   let taxStr = countPrice((totalCost * 0.05).toFixed(2).toString());
 
   const applyOrderHandler = (event) => {
     event.preventDefault();
+    purchasesCtx.addPurchases(cartCtx.items.map((sneaker) => sneaker.id));
     cartCtx.applyOrder();
   };
 

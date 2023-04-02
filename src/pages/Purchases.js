@@ -6,26 +6,25 @@ import Title from "../components/layout/title/Title";
 import Sneakers from "../components/sneakers/Sneakers";
 import ActionNotification from "../components/ActionNotification";
 
-import favouriteContext from "../store/favouriteContext";
-
-import noFavouritesImage from "./../assets/noFavourites.png";
+import noPurchasesImage from "./../assets/noPurchases.png";
 
 import classes from "./../App.module.scss";
+import purchasesContext from "../store/purchasesContext";
 
-const Favourite = () => {
-  const favouriteCtx = useContext(favouriteContext);
+const Purchases = () => {
+  const purchasesCtx = useContext(purchasesContext);
   const navigate = useNavigate();
   return (
     <div className={wrapperStyle["wrapper-main"]}>
       <section className={classes["section_title-search"]}>
-        <Title>Мои закладки</Title>
+        <Title>Мои покупки</Title>
       </section>
       <section>
-        {favouriteCtx.items.length === 0 && (
+        {purchasesCtx.items.length === 0 && (
           <ActionNotification
-            imgUrl={noFavouritesImage}
-            title={"Закладок нету :("}
-            text={"Вы ничего не добавили в закладки."}
+            imgUrl={noPurchasesImage}
+            title={"У вас нет заказов"}
+            text={"Вы нищеброд? Оформите хотя бы один заказ."}
             buttonText={"Вернуться назад"}
             isApply={false}
             onHideCart={() => {
@@ -38,12 +37,12 @@ const Favourite = () => {
             imgStyles={{ width: "5vw" }}
           />
         )}
-        {favouriteCtx.items.length !== 0 && (
-          <Sneakers data={favouriteCtx.items} isButtonBuyAvailable={true} />
+        {purchasesCtx.items.length !== 0 && (
+          <Sneakers data={purchasesCtx.items} isButtonBuyAvailable={false} />
         )}
       </section>
     </div>
   );
 };
 
-export default Favourite;
+export default Purchases;
