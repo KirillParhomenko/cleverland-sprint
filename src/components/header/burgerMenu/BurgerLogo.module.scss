@@ -1,0 +1,33 @@
+.hamburger {
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 7vw;
+    height: 7vw;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  &_line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+    transition: all 0.1s;
+  }
+
+  &_active {
+    display: none;
+    &:first-child {
+      display: block;
+      transform: translateY(5px) rotate(135deg);
+    }
+
+    &:last-child {
+      display: block;
+      transform: translateY(-5px) rotate(-135deg);
+    }
+  }
+}

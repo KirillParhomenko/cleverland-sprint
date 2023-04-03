@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
-
 const FindItem = (props) => {
-  return <Link>{props.name}</Link>;
+  return (
+    <a
+      onClick={() => {
+        window.scroll({
+          top:
+            props.sneakerRef.current.offsetTop -
+            props.sneakerRef.current.offsetHeight / 2,
+          behavior: "smooth",
+        });
+        props.disableFoundItem();
+      }}
+    >
+      {props.name}
+    </a>
+  );
 };
 
 export default FindItem;

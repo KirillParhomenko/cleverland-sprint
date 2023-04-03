@@ -7,7 +7,7 @@ import bannerData from "../../assets/bannerData";
 
 const Banner = () => {
   return (
-    <section>
+    <section className={classes["banner"]}>
       <Wrapper className={classes["banner-wrapper"]}>
         <span>
           <BannerArrow />

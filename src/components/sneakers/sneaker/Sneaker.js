@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import cartContext from "../../../store/cartContext";
 
@@ -13,6 +13,13 @@ import FavouriteLogoActive from "../../../assets/favourite_logo_active";
 
 const Sneaker = (props) => {
   const cartCtx = useContext(cartContext);
+  const sneakerRef = useRef(null);
+
+  useEffect(() => {
+    if (props.setSneakerRef) {
+      props.setSneakerRef({ id: props.id, ref: sneakerRef });
+    }
+  }, []);
 
   const addSneakerHandler = () => {
     cartCtx.addItem({
@@ -38,7 +45,7 @@ const Sneaker = (props) => {
   const finallPrice = countPrice(props.price.toString());
 
   return (
-    <div className={classes["sneaker_wrapper"]}>
+    <div className={classes["sneaker_wrapper"]} ref={sneakerRef}>
       <button
         className={`${classes["sneaker_favourite"]} ${
           props.isFavourite && classes["sneaker_favourite_active"]

@@ -28,6 +28,7 @@ const PopUpPortal = (props) => {
   return (
     <Fragment>
       {props.isActive &&
+        props.isBackDropActive &&
         ReactDOM.createPortal(
           <BackDrop onHide={props.hideHandler}></BackDrop>,
           document.getElementById("pop-up")
